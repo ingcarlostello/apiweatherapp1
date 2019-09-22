@@ -1,12 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1,
+            shrink-to-fit=no"
+            />
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+            />
+        <link rel="stylesheet" type="text/css" media="screen" href="styles.css">
+
+        <title>Weather App</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <!-----------------------------------------------------------------------------------------------------------------------------------
+                                                                        /SECTION 1/
+            ------------------------------------------------------------------------------------------------------------------------------------>
+            <section class="section1">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" id="city" placeholder="Enter city" />
+                        <br />
+                        <button id = "enviar" type="button" class="boton">See Weather</button>                                      
+                    </div>
+                </div>
+            </section>
+            <!-----------------------------------------------------------------------------------------------------------------------------------
+                                                                        /SECTION 2/
+            ------------------------------------------------------------------------------------------------------------------------------------>
+            <section class="section2">
+                <div class="row">
+                    <div class="col colum-section2">
+                        <div class="card" style="width:23rem; height: 30rem;">                            
+                            <div id = "cardBody" class="card-body">
+                                <h5 class="card-title cardElement" id = "title">titulo</h5>
+
+<div class = >
+        
+        <div class = "co"><p id = "country" class = "cardElement">CO</p></div>
+        <div class = "flag"><img src="" id="flag" width="16" /></div> 
+                                
+
+          
+</div>
+                                
+
+                                <div class = "cardElement"><img src="" id="foto" width="180" /></div>
+                                <p class = "cardElement" id = "description">description</p>
+                                <h1 class = "cardElement" id = "cel">holas</h1>   
+                                                          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
 
 
@@ -15,15 +72,25 @@
 
 
 
-    
 
-    <input type = "text" id ="city" placeholder="city">
-    <br/>
-    <button id = "enviar">Ver</button>
-    
-    <p id="demo"></p>
-    <img src="" id = "foto" width = "100"/>
-    <script src="apiClima.js"></script>
-</body>
+
+
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="apiClima.js"></script>
+    </body>
 </html>
-

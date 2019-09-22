@@ -5,10 +5,6 @@ let language = "&lang=es";
 let enter = document.getElementById("city");
 const boton = document.getElementById("enviar");
 
-
-
-
-
 /******************************************************************* /FUNCTIONS/ **********************************************************/
 let  teclaEnter = e => {
     if (e.keyCode === 13){
@@ -17,34 +13,34 @@ let  teclaEnter = e => {
     }
 }
 
-
-
-
-
-
-    //clima()    
-
-
-
 async function clima(){
+    
+    if ( document.getElementById("cardBody").className.match(/(?:^|\s)fadeIn animated(?!\S)/) ){
+        document.getElementById("cardBody").className =document.getElementById("cardBody").className.replace( /(?:^|\s)fadeIn animated(?!\S)/g , '' )
+    }
+
     let city = enter.value;
     let res = await fetch(api + city + apiKey + units);
+
     let data = await res.json();
-    //let img = await res.blob();
+    console.log(data);
+    let country = await data.sys.country;
+    let description = await data.weather[0].description;
+    let icono = await data.weather[0].icon;
+    let imagen =  `http://openweathermap.org/img/wn/${icono}@2x.png`;
+    let flag =  await data.sys.country.toLowerCase();
+    let outPut =   `http://openweathermap.org/images/flags/${flag}.png`;
+    let cel =  Math.round(data.main.temp); // toFixed(1) es usado para mostrar solo 1 decimal
 
-    console.log(data)
-    let icono = data.weather[0].icon;
-    let imagen = `http://openweathermap.org/img/wn/${icono}@2x.png`;
-    console.log(icono)
-    console.log(data.main.temp.toFixed(1)); // toFixed(1) es usado para mostrar solo 1 decimal
-    document.getElementById('foto').src = imagen
-
-
+    document.getElementById('cardBody').classList.add('fadeIn', 'animated');
+    document.getElementById('title').innerHTML = data.name;
+    document.getElementById('country').innerHTML = country;
+    document.getElementById('flag').src = outPut;        
+    document.getElementById('foto').src = imagen;       
+    document.getElementById('description').innerHTML = description;
+    document.getElementById('cel').innerHTML = cel + "°C";
     
-    //console.log(data.weather[0].description);
-
-
-
+    enter.value = "";
     }
 
 
