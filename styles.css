@@ -71,11 +71,7 @@ body{
     font-size: 15px;
 }
 
-.contenedor{
 
-            text-align: center;
-            margin:auto;
-}
 
 .co{
     display:inline-table;
@@ -113,7 +109,7 @@ body{
                                                                 Button effects
 *********************************************************************************************************************************************/
 
-button {
+.boton {
     background-color:rgb(224, 143, 84);
     border: 0;
     outline: 0;
@@ -131,12 +127,12 @@ button {
     -webkit-border-radius: 71px 71px 71px 71px;
     border: 0px solid #000000;
   }
-  button:hover {
+  .boton:hover {
     box-shadow: 0px 15px 25px -5px #000000;
     -webkit-transform: scale(1.03);
     transform: scale(1.03);
   }
-  button:active {
+  .boton:active {
     box-shadow: 0px 4px 8px #000000;
     -webkit-transform: scale(0.98);
     transform: scale(0.98);
