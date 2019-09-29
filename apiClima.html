@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1,
             shrink-to-fit=no" />
-            <script src="https://kit.fontawesome.com/808e969dcf.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/808e969dcf.js" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -24,61 +24,71 @@
                 <div class="col">
                     <input type="text" id="city" placeholder="Enter city" />
                     <br />
-                    <button data-modal-trigger="trigger-1" type="button" class="boton" id = "show">See Weather</button>
+                    <button data-modal-trigger="trigger-1" type="button" class="boton" id="show">See Weather</button>
                     <!--<button id="enviar" type="button" class="boton">See Weather</button>-->
                 </div>
             </div>
         </section>
         <!-----------------------------------------------------------------------------------------------------------------------------------
-                                                                        /SECTION 2/
-            ------------------------------------------------------------------------------------------------------------------------------------>
+                                                                            /SECTION 2/
+                ------------------------------------------------------------------------------------------------------------------------------------>
         <section class="section2">
             <div class="row">
                 <div class="col colum-section2">
                     <div class="card" style="width:23rem; height: 30rem;">
                         <div id="cardBody" class="card-body">
-                            <h5 class="card-title cardElement" id="title">titulo</h5>
+                            <h5 class="card-title cardElement" id="title">Waiting the city</h5>
                             <div>
                                 <div class="co">
-                                    <p id="country" class="cardElement">CO</p>
+                                    <p id="country" class="cardElement"></p>
                                 </div>
+                                <div class="spinner" id = "spinner"></div>
                                 <div class="flag">
                                     <img src="" id="flag" width="16" />
                                 </div>
                             </div>
                             <div class="cardElement">
                                 <img src="" id="foto" width="180" />
-                            </div>
-                            <p class="cardElement" id="description">description</p>
-                            <h1 class="cardElement" id="cel">holas</h1>
+                            </div>                            
+                            <p class="cardElement" id="description"></p>
+                            <h1 class="cardElement" id="cel"></h1>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Modal -->
-        <div data-modal="trigger-1" class="modal" id= "modalWindow">
-            <article class="content-wrapper" id = "envoltura">
+        <!-----------------------------------------------------------------------------------------------------------------------------------
+                                                                            /MODAL/
+                ------------------------------------------------------------------------------------------------------------------------------------>
+        <div data-modal="trigger-1" class="modal" id="modalWindow">
+            <article class="content-wrapper" id="envoltura">
                 <button class="close"></button>
                 <header class="modal-header">
                     <h2>City not found</h2>
                 </header>
                 <div class="content">
-                    <h5 id = "modalMessage">Sorry, this city is not listed in this API <i class="far fa-sad-cry"></i></h5>
+                    <h5 id="modalMessage"></h5>
                 </div>
                 <footer class="modal-footer">
-                    <button class="action" id = "btnCloseModal">close</button>
+                    <button class="action" id="btnCloseModal">close</button>
                 </footer>
             </article>
         </div>
 
+        <div class="row parrafo">
+            <li>To make it more precise put the city's name, comma,
+                2-letter country code (ISO3166). You will get all proper
+                cities in chosen country.
+                The order is important - the first is city name then
+                comma then country. Example - London, GB or New York,
+                US.</li>
+        </div>
 
 
 
-
-
-
+        <!-----------------------------------------------------------------------------------------------------------------------------------
+                                                                        /SCRIPTS/
+            ------------------------------------------------------------------------------------------------------------------------------------>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -91,6 +101,12 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
         <script src="apiClima.js"></script>
+    </div>
 </body>
-
+<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+        <small>Copyright &copy; App by: Eng. Carlos Tello</small>
+        <p>2019</p>
+    </div>
+</footer>
 </html>

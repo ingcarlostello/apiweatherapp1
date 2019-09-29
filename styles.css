@@ -27,6 +27,16 @@ body{
 /* ******************************************************************************************************************************************
                                                                Section 2
 *********************************************************************************************************************************************/
+.parrafo{
+  width: 75%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:30px;
+  font-family: 'Be Vietnam', sans-serif;
+  font-weight: bold;
+}
+
 .card{
     margin-top:50px;
     margin-left: auto;
@@ -42,9 +52,9 @@ body{
     -webkit-border-radius: 14px 14px 14px 14px;
     border: 0px solid #000000;
     /*** Card background ***/
-    background: #4e54c8;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #8f94fb, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #0099cc;  /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to top, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to bottom, #8f94fb, #4e54c8); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ */
 }
 
 .card:hover {
@@ -326,4 +336,47 @@ body{
 }
 .modal .content-wrapper .modal-footer .action:hover:before {
   width: 100%;
+}
+
+/* ******************************************************************************************************************************************
+                                                                Footer
+*********************************************************************************************************************************************/
+#sticky-footer {
+  flex-shrink: none;
+  margin-top:30px;
+}
+
+
+
+/* ******************************************************************************************************************************************
+                                                                Spinner
+*********************************************************************************************************************************************/
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+  background-color: #333;
+  border-radius: 100%;  
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
 }

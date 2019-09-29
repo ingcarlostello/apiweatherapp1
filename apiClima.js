@@ -8,12 +8,14 @@ const boton = document.getElementById("show");
 const modal = document.getElementById("modalWindow");
 const btnCloseModal = document.getElementById("btnCloseModal");
 const modalMessage = document.getElementById("modalMessage");
+const spinner = document.getElementById("spinner");
 
 /******************************************************************* /FUNCTIONS/ **********************************************************/
 let teclaEnter = e => {
   if (e.keyCode === 13) {
     clima();
     txtCity.value = "";
+    spinner.classList.remove("spinner");
   }
 };
 
@@ -28,6 +30,7 @@ async function clima() {
 
   if (!res.ok === false) {
     let data = await res.json();
+    console.log(data)
     let country = await data.sys.country;
     let description = await data.weather[0].description;
     let icono = await data.weather[0].icon;
@@ -44,6 +47,7 @@ async function clima() {
     document.getElementById("description").innerHTML = description;
     document.getElementById("cel").innerHTML = cel + "°C";
     txtCity.value = "";
+    spinner.classList.remove("spinner");
   } else {
     mostrarModal()
     console.log("ciudad no esta listada");
@@ -51,25 +55,26 @@ async function clima() {
 }
 
 function mostrarModal() {
+
   const trigger = boton.getAttribute("data-modal-trigger");
   const modal = document.querySelector(`[data-modal=${trigger}]`);
   const contentWrapper = modal.querySelector(".content-wrapper");
-  const close = modal.querySelector(".close");  
+  const close = modal.querySelector(".close");
 
-  if(txtCity.value === ""){  
-    modalMessage.textContent = "Empty text field";  
+  if (txtCity.value == 0) {
+    modalMessage.innerHTML = "Empty text field";
   }
-  else{
-    modalMessage.innerText = modalMessage.textContent;  
+  else {
+    modalMessage.innerText = 'Sorry, this city is not listed in this API';
   }
-  modal.classList.toggle("open"); 
+  modal.classList.toggle("open");
 
   close.addEventListener("click", () => modal.classList.remove("open"));
   // modal.addEventListener("click", () => modal.classList.remove("open"));
   contentWrapper.addEventListener("click", e => e.stopPropagation());
 }
 
-function closeModal(){
+function closeModal() {
   modal.classList.remove("open");
   txtCity.value = "";
 }
