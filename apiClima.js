@@ -14,7 +14,7 @@ const spinner = document.getElementById("spinner");
 let teclaEnter = e => {
   if (e.keyCode === 13) {
     clima();
-    txtCity.value = "";
+    //txtCity.value = "";
     spinner.classList.remove("spinner");
   }
 };
