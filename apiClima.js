@@ -3,31 +3,26 @@ let apiKey = "&APPID=068e433d997abd16266f20079d3504ed";
 let units = "&units=metric";
 let language = "&lang=es";
 
-let enter = document.getElementById("city");
-const boton = document.getElementById("enviar");
-const modal = document.getElementById("myModal");
-
+let txtCity = document.getElementById("city");
+const boton = document.getElementById("show");
+const modal = document.getElementById("modalWindow");
+const btnCloseModal = document.getElementById("btnCloseModal");
+const modalMessage = document.getElementById("modalMessage");
 
 /******************************************************************* /FUNCTIONS/ **********************************************************/
 let teclaEnter = e => {
   if (e.keyCode === 13) {
     clima();
-    enter.value = "";
+    txtCity.value = "";
   }
 };
 
 async function clima() {
-  if (
-    document
-      .getElementById("cardBody")
-      .className.match(/(?:^|\s)fadeIn animated(?!\S)/)
-  ) {
-    document.getElementById("cardBody").className = document
-      .getElementById("cardBody")
-      .className.replace(/(?:^|\s)fadeIn animated(?!\S)/g, "");
+  if (document.getElementById("cardBody").className.match(/(?:^|\s)fadeIn animated(?!\S)/)) {
+    document.getElementById("cardBody").className = document.getElementById("cardBody").className.replace(/(?:^|\s)fadeIn animated(?!\S)/g, "");
   }
 
-  let city = enter.value;
+  let city = txtCity.value;
   let url = api + city + apiKey + units;
   let res = await fetch(url);
 
@@ -48,16 +43,39 @@ async function clima() {
     document.getElementById("foto").src = imagen;
     document.getElementById("description").innerHTML = description;
     document.getElementById("cel").innerHTML = cel + "°C";
-    enter.value = "";
+    txtCity.value = "";
   } else {
-    //alert("ciudad no esta listada");
+    mostrarModal()
     console.log("ciudad no esta listada");
-    boton.setAttribute("data-target", "#myModal");   
   }
 }
 
+function mostrarModal() {
+  const trigger = boton.getAttribute("data-modal-trigger");
+  const modal = document.querySelector(`[data-modal=${trigger}]`);
+  const contentWrapper = modal.querySelector(".content-wrapper");
+  const close = modal.querySelector(".close");  
+
+  if(txtCity.value === ""){  
+    modalMessage.textContent = "Empty text field";  
+  }
+  else{
+    modalMessage.innerText = modalMessage.textContent;  
+  }
+  modal.classList.toggle("open"); 
+
+  close.addEventListener("click", () => modal.classList.remove("open"));
+  // modal.addEventListener("click", () => modal.classList.remove("open"));
+  contentWrapper.addEventListener("click", e => e.stopPropagation());
+}
+
+function closeModal(){
+  modal.classList.remove("open");
+  txtCity.value = "";
+}
 
 /******************************************************************* /Event Listeners/ **********************************************************/
 boton.addEventListener("click", clima);
-enter.addEventListener("keyup", teclaEnter);
+txtCity.addEventListener("keyup", teclaEnter);
+btnCloseModal.addEventListener("click", closeModal);
 
