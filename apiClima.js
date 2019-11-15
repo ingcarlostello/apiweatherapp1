@@ -1,4 +1,4 @@
-let api = "http://api.openweathermap.org/data/2.5/weather?q=";
+let api = "https://api.openweathermap.org/data/2.5/weather?q=";
 let apiKey = "&APPID=068e433d997abd16266f20079d3504ed";
 let units = "&units=metric";
 let language = "&lang=es";
@@ -34,9 +34,9 @@ async function clima() {
     let country = await data.sys.country;
     let description = await data.weather[0].description;
     let icono = await data.weather[0].icon;
-    let imagen = `http://openweathermap.org/img/wn/${icono}@2x.png`;
+    let imagen = `https://openweathermap.org/img/wn/${icono}@2x.png`;
     let flag = await data.sys.country.toLowerCase();
-    let outPut = `http://openweathermap.org/images/flags/${flag}.png`;
+    let outPut = `https://openweathermap.org/images/flags/${flag}.png`;
     let cel = Math.round(data.main.temp); // toFixed(1) es usado para mostrar solo 1 decimal
 
     document.getElementById("cardBody").classList.add("fadeIn", "animated");
